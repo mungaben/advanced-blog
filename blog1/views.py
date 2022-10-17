@@ -60,6 +60,7 @@ def Post_detail(request,year,month,day,post):
         if form.is_valid():
             new_comment=CommentForm.save(commit=False)
             new_comment.post=post
+
             new_comment.save()
         
     context={
