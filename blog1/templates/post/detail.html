@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+{{post.title}}
+    
+{% endblock title %}
+    
+    {% block content %}
+        {% comment %} 
+        get post.title
+        post.publish
+        post.author
+        post.body|linebreaks
+        <h2>Similar posts</h2>
+{% for post in similar_posts %}
+<p>
+<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+</p>
+{% empty %}
+There are no similar posts yet.
+{% endfor %}
+        {% endcomment %}
+    {% endblock content %}
+        

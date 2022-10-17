@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    blog title
+{% endblock title %}
+    
+
+{% block content %}
+    
+
+{% comment %}
+wit tailwind
+    get all post => loop through "post"
+    each post title =>post.get_absolute_url in href
+    post.publish,<post class="author"></post>
+    post.body|truncatewords:30|linebreaks
+    <p class="tags">Tags: {{ post.tags.all|join:", " }}</p>
+
+    {% if tag %}
+      {%for tag in post.tag.all%}
+           <ahref {% url post:post_list tag.slug %}> tag</a>
+            if not foorloop.last
+    {% endif %}
+{% endcomment %}
+  
+  {% for post in post %}
+    {{post.title}}
+
+  {% endfor %}
+      
+{% include 'pagination.html' with page=post %}
+{% endblock content %}
+    
